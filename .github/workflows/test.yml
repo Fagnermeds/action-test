@@ -1,0 +1,19 @@
+name: Test env
+on:
+  push:
+    branches:
+      - main
+jobs:
+ test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Env
+      run: |-
+         - echo ${{ secrets.STG_ENV }} > .env
+         - ENV="$(cat (sed -i 's/\s/,/g' .env))"
+         - ls -a
+
