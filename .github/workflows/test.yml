@@ -15,7 +15,7 @@ jobs:
       run: |-
           echo "${{ secrets.STG_ENV }}" > .env
           sed -i 's/\s/,/g' .env
-          ENV="$(cat .env)"
+          ENV=$(cat .env)
           ls -a
           echo $ENV
 
