@@ -17,4 +17,5 @@ jobs:
           sed -i 's/\s/,/g' .env
           ENV="$(cat .env)"
           ls -a
+          cat .env
 
